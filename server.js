@@ -5,10 +5,16 @@ let express = require('express'),
     app = express(),
     session = require('express-session'),
     flash = require('req-flash'),
+    port = process.env.PORT || 3000,
     routes = require("./routes"),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    mongoose = require('mongoose');
 
-console.log("mongoose stuff initialized");
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/tutorwebsite';
+
 //Allow body parser to handle post requests
 app.use(bodyParser.urlencoded({
     extended: true
@@ -23,23 +29,14 @@ app.use(flash());
 app.set('view engine', 'pug')
 app.set('views', __dirname + '/views');
 
-//-----------------------------------------
-//Mongoose Settings
-//-----------------------------------------
-const {User} = require("./models");
-const mongoose = require("mongoose");
 //Database configuration
-app.use((req, res, next) => {
-  console.log("use for mongoose callback");
-  if (mongoose.connection.readyState) {
-    console.log("if (mongoose.connection.readyState)");
-    next();
-  } else {
-    console.log("else (mongoose.connection.readyState)");
-    require("./mongo")().then(() => next());
-    console.log("else (mongoose.connection.readyState)");
-  }
-});
+mongoose.connect(uristring, function (err, res) {
+      if (err) {
+      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+      } else {
+      console.log ('Succeeded connected to: ' + uristring);
+      }
+    });
 
 //Using appointmentRoutes which defines all the API endpoints
 app.use('/', routes)
