@@ -1,0 +1,15 @@
+// config/mongo.json
+
+{
+  "development": {
+    "database": "tutorwebsite",
+    "host": "localhost"
+  },
+  "test": {
+    "database": "tutorwebsite",
+    "host": "localhost"
+  },
+  "production": {
+    "use_env_variable": "MONGODB_URI"
+  }
+}
