@@ -46,6 +46,8 @@ router.route('/tutor/view')
 router.route('/tutor/view/:username')
     .get(tutorviewController.viewtutor)
     .post(tutorviewController.submitrating)
+    .put(tutorviewController.update)
+    .delete(tutorviewController.delete);
 
 router.route('/tutor/view/profile/:username')
     .get(tutorviewController.viewtutorprofile)
@@ -60,6 +62,9 @@ router.route('/tutor/profile/update/:username')
     .get(tutorviewController.updatetutorprofile)
     .post(tutorviewController.postupdatetutor)
 
+router.route('/tutor/view/:tutor_subject')
+    .get(tutorviewController.viewtutor)
+
 //student routes
 router.route('/student/new/')
     .get(studentviewController.newstudent)
@@ -70,6 +75,8 @@ router.route('/student/view')
 
 router.route('/student/view/:username')
     .get(studentviewController.viewstudent)
+    .put(studentviewController.update)
+    .delete(studentviewController.delete);
 
 router.route('/student/view/profile/:username')
     .get(studentviewController.viewstudentprofile)
@@ -83,6 +90,9 @@ router.route('/student/profile/remove/:username')
 router.route('/student/profile/update/:username')
     .get(studentviewController.updatestudentprofile)
     .post(studentviewController.postupdatestudent)
+
+router.route('/student/view/:student_subject')
+    .get(studentviewController.viewstudent)
 
 //login routes
 router.route('/login')
@@ -104,8 +114,6 @@ router.route('/api/appointment/:appointment_id')
     .put(appointmentController.update)
     .delete(appointmentController.delete);
 
-
-
 //student API routes
 router.route('/api/student')
 	.get(studentviewController.index)
@@ -113,8 +121,8 @@ router.route('/api/student')
 
 router.route('/api/student/:student_id')
 	.get(studentviewController.view)
-  .put(studentviewController.update)
-  .delete(studentviewController.delete);
+    .put(studentviewController.update)
+    .delete(studentviewController.delete);
 
 //tutor view API routes
 router.route('/api/tutor')
@@ -123,8 +131,14 @@ router.route('/api/tutor')
 
 router.route('/api/tutor/:tutor_id')
 	.get(tutorviewController.view)
-  .put(tutorviewController.update)
-  .delete(tutorviewController.delete);
+    .put(tutorviewController.update)
+    .delete(tutorviewController.delete);
+
+router.route('/api/tutor/view/tutordetails')
+    .get(tutorviewController.view)
+
+router.route('/api/tutor/view/:tutor_subject')
+    .get(tutorviewController.view)
 
 //Export module
 module.exports = router;
