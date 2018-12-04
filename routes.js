@@ -136,11 +136,5 @@ router.route('/api/tutor/:tutor_id')
   .put(tutorviewController.update)
   .delete(tutorviewController.delete);
 
-router.route('/api/tutor/view/tutordetails')
-        .get(tutorviewController.view)
-
-router.route('/api/tutor/view/:tutor_subject')
-        .get(tutorviewController.view)
-
 //Export module
 module.exports = router;
