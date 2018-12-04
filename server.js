@@ -5,7 +5,6 @@ let express = require('express'),
     app = express(),
     session = require('express-session'),
     flash = require('req-flash'),
-    port = process.env.PORT || 3000,
     routes = require("./routes"),
     bodyParser = require('body-parser');
 
