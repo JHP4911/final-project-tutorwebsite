@@ -62,4 +62,30 @@ describe('Appointments', () => {
       });
   });
 
+  //Test /POST route
+  describe('/POST appointment', () => {
+      it('it should POST an appointment', (done) => {
+          let appointment = {
+            tutor: "Amy Willard",
+            student: "John Green",
+            appointmentDate: "2019-01-05T06:00:00Z",
+            appointmentTime: "9:00 am",
+            message: "Please help me with my bio homework!"
+          }
+        chai.request(server)
+            .post('/api/appointment')
+            .send(appointment)
+            .end((err, res) => {
+                  res.should.have.status(200);
+                  res.body.should.be.a('object');
+                  res.body.should.have.property('tutor');
+                  res.body.should.have.property('student');
+                  res.body.should.have.property('appointmentDate');
+                  res.body.should.have.property('appointmentTime');
+                  res.body.should.have.property('message');
+              done();
+            });
+      });
+  });
+  
 });

@@ -104,11 +104,7 @@ router.route('/api/appointment/:appointment_id')
     .put(appointmentController.update)
     .delete(appointmentController.delete);
 
-router.route('/api/tutor/view/viewtutorappointment/:tutor_id')
-    .get(appointmentController.view)
 
-router.route('/api/student/view/viewstudentappointment/:student_id')
-    .get(appointmentController.view)
 
 //student API routes
 router.route('/api/student')
@@ -119,12 +115,6 @@ router.route('/api/student/:student_id')
 	.get(studentviewController.view)
   .put(studentviewController.update)
   .delete(studentviewController.delete);
-
-router.route('/api/student/view/studentdetails')
-	.get(studentviewController.view)
-
-router.route('/api/student/view/:student_subject')
-	.get(studentviewController.view)
 
 //tutor view API routes
 router.route('/api/tutor')
