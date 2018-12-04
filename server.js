@@ -13,8 +13,9 @@ var mongoose = require('mongoose');
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
+    process.env.MONGODB_URI ||
     'mongodb://localhost/tutorwebsite';
-var theport = process.env.PORT || 5000;
+var theport = process.env.PORT || 3000;
 
 var Student = require('./models/student-model'),
     Register = require('./models/register-model'),
