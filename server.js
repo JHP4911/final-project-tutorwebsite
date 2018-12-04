@@ -47,7 +47,7 @@ mongoose.connect(uristring, function (err, res) {
 app.use('/', routes)
 
 app.listen(theport);
-console.log('Server is running on port: ' + port);
+console.log('Server is running on port: ' + theport);
 
 //Export module
 module.exports = app;
