@@ -228,7 +228,7 @@ exports.update = function (req, res) {
       tutorView.subject = req.body.subject;
       tutorView.availability = req.body.availability;
 
-      TutorView.save(function (err) {
+      tutorView.save(function (err) {
         if (err) {
           res.send(err);
         } else {
