@@ -4,6 +4,7 @@
   "description": "Final project for ITMD 462",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "mocha"
   },
   "repository": {
