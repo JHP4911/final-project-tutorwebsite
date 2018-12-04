@@ -46,7 +46,7 @@ mongoose.connect(uristring, function (err, res) {
 //Using appointmentRoutes which defines all the API endpoints
 app.use('/', routes)
 
-app.listen(port);
+app.listen(theport);
 console.log('Server is running on port: ' + port);
 
 //Export module
