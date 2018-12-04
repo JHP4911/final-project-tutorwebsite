@@ -27,7 +27,6 @@ app.set('views', __dirname + '/views');
 //-----------------------------------------
 //Mongoose Settings
 //-----------------------------------------
-const {User} = require("/models");
 const mongoose = require("mongoose");
 //Database configuration
 app.use((req, res, next) => {
